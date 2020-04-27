@@ -12,7 +12,7 @@ user = 'user'
 password = 'password'
 
 ip_info = dict()
-os.system('masscan -p 1-65535 -iL ip.txt -oL port.list')
+os.system('masscan -p 1-65535 -iL ip.txt -oL port.list --rate 10000')
 with open('port.list', 'r') as file:
     a = file.read()
 ip_info = dict()
