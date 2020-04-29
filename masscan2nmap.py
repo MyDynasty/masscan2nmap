@@ -10,14 +10,16 @@ from libnmap.process import NmapProcess
 from libnmap.reportjson import ReportDecoder,ReportEncoder
 from libnmap.parser import NmapParser,NmapParserException
 
-
+#数据库信息
 database = '*'
 hhost = 'iceqboo.com'
 dport = '*'
 user = '*'
 password = '*'
 
+
 ip_info = dict()
+#修改rate值可改变端口扫描速率，但速率和准确率成反比
 os.system('masscan -p 1-65535 -iL ip.txt -oL port.list --rate 1000')
 with open('port.list', 'r') as file:
     a = file.read()
