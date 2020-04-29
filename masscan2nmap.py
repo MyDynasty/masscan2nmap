@@ -77,6 +77,8 @@ def Scan1(ip):
                                 host.address, str(serv.port), serv.protocol, serv.state, serv.service, serv.banner))
                     break
                 except:
+                    conn = psycopg2.connect(database=database, host=hhost, port=dport, user=user, password=password)
+                    cur = conn.cursor()
                     print("retry: %s:%s" % (host.address, str(serv.port)))
     conn.commit()
     conn.close()
